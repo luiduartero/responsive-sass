@@ -1,0 +1,94 @@
+//colores de los cuadors
+$color1: crimson; 
+$color2: greenyellow;
+$color3: yellow; 
+$color4: goldenrod;
+$color5: darkorchid; 
+$color6: darkseagreen;
+$color7: peru; 
+$color8: aquamarine;
+$colors: $color1 $color2 $color3 $color4 $color5 $color6 $color7;
+//valores de los cuadros
+$altoCuadro: 300px; 
+$altoBarra: 75px;
+//ajustes de boton
+$anchoBoton: 150px;
+$margin: 10px;
+//limites de responsive
+$limiteTablet:481px;
+$limiteCompu:768px;
+//espacio entre cuadros
+$espaciocuadros: 10px; 
+* {
+    box-sizing: border-box;
+}
+.cuadro {
+    padding:    10px, 10px, 10px, 10px;
+    margin-top: $margin;
+    height: $altoCuadro;
+    float: left;
+    position: relative;
+    width: 100%;
+}
+
+@each $color in $colors {
+    $i: index($colors, $color);
+    .col-#{$i}{
+        background-color: #{$color} ;
+    }
+}
+.col-8{
+    background-color: $color8;
+    height: $altoBarra;
+    padding-right: $anchoBoton;
+}
+.input{
+    float: left;
+    width: 100%;
+    height: 100%; 
+}
+.sub-1{
+    float: right;
+    height: $altoBarra;
+    width: $anchoBoton;
+    position: absolute;
+    right: 0px;
+    top: 0;
+}
+
+@media only screen and (min-width: $limiteTablet) {
+    /* For tablets: */
+    .contenedor-1,.contenedor-2{
+        float: left; 
+        width:  50%;
+    }
+    .contenedor-1{
+        padding-right: $espaciocuadros/2;
+    }
+    .contenedor-2{
+        padding-left: $espaciocuadros/2;  
+    }
+    
+}
+@media only screen and (min-width: $limiteCompu) {
+    /* For desktop: */
+    .contenedor-1,.contenedor-2,.contenedor-3{
+        float: left; 
+        width:  33.33%;
+    }
+    .contenedor-1,.contenedor-4{
+        padding-right: $espaciocuadros/2;
+    }
+    .contenedor-2{
+        padding-left: $espaciocuadros/2;
+        padding-right:$espaciocuadros/2; 
+    } 
+    .contenedor-3,.contenedor-5{
+        padding-left: $espaciocuadros/2; 
+    }  
+     .contenedor-4,.contenedor-5{
+        float: left; 
+        width:  50%;
+    } 
+
+}
